@@ -1,0 +1,69 @@
+<mat-nav-list>
+
+  <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="onClose()">
+    <mat-icon>home</mat-icon>
+    <span class="nav-caption">Home</span>
+  </a>
+
+  <a mat-list-item routerLink="/posts" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>assignment</mat-icon>
+    <span class="nav-caption">Posts</span>
+  </a>
+
+  <a mat-list-item routerLink="/grid" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>grid_on</mat-icon>
+    <span class="nav-caption">Grid</span>
+  </a>
+
+  <a mat-list-item routerLink="/dashboard" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>dashboard</mat-icon>
+    <span class="nav-caption">Dashboard</span>
+  </a>
+  
+  <mat-divider *ngIf="true"></mat-divider>
+
+  <a mat-list-item routerLink="/search" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>search</mat-icon>
+    <span class="nav-caption">Search</span>
+  </a>
+
+  <a mat-list-item routerLink="/notifications" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>notifications_active</mat-icon>
+    <span class="nav-caption">Notifications</span>
+    <span matBadge="{{ notificationsList.length }}" matBadgeOverlap="false" [matBadgeHidden]="!notificationsList.length"></span>
+  </a>
+
+  <a mat-list-item routerLink="/settings" routerLinkActive="active" (click)="onClose()" *ngIf="isAuthenticated">
+    <mat-icon>settings</mat-icon>
+    <span class="nav-caption">Settings</span>
+  </a>
+
+  <a mat-list-item routerLink="auth/login" routerLinkActive="active" (click)="onClose()" *ngIf="!isAuthenticated">
+    <mat-icon>input</mat-icon>
+    <span class="nav-caption">Login</span>
+  </a>
+
+  <a mat-list-item routerLink="auth/signup" routerLinkActive="active" (click)="onClose()" *ngIf="!isAuthenticated">
+    <mat-icon>face</mat-icon>
+    <span class="nav-caption">Signup</span>
+  </a>
+  
+  <!-- <mat-divider *ngIf="true"></mat-divider>
+
+  <a mat-list-item routerLink="/notifications" routerLinkActive="active"  (click)="onClose()" *ngIf="true">
+    <mat-icon>notifications_active</mat-icon>
+    <span class="nav-caption">Notifications</span>
+    <span matBadge="4" matBadgeOverlap="false"></span>
+  </a>
+
+  <a mat-list-item routerLink="/profile" routerLinkActive="active" (click)="onClose()" *ngIf="true">
+    <mat-icon>settings</mat-icon>
+    <span class="nav-caption">Profile</span>
+  </a>
+
+  <a mat-list-item routerLink="/settings" routerLinkActive="active" (click)="onClose()" *ngIf="true">
+    <mat-icon>settings</mat-icon>
+    <span class="nav-caption">Settings</span>
+  </a> -->
+
+</mat-nav-list>

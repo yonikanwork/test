@@ -1,0 +1,157 @@
+<div class="toolbar-container-wrapper">
+  <mat-toolbar class="toolbar-container">
+  
+    <button mat-button class="hamburger-menu" (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  
+    <div class="logo">
+      <button mat-button routerLink="/">
+        <img src="./assets/img/logo.png" />
+        <h1>POSTY</h1>
+      </button>
+    </div>
+  
+    <nav class="navigation" *ngIf="isAuthenticated">
+      <ul>
+        <li>
+          <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a mat-button routerLink="/posts" routerLinkActive="active">Posts</a>
+        </li>
+        <li>
+          <a mat-button routerLink="/grid" routerLinkActive="active">Grid</a>
+        </li>
+        <!-- <li>
+            <a mat-button routerLink="/posts-grid" routerLinkActive="active">Posts Grid</a>
+        </li> -->
+        <li>
+          <a mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+        <!-- <li>
+          <a mat-button routerLink="/search" routerLinkActive="active">Serach</a>
+        </li> -->
+        <li>
+          <a mat-button routerLink="/settings" routerLinkActive="active">Settings</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="actions">
+      <div *ngIf="!isAuthenticated" class="auth-container">
+        <a mat-button routerLink="/auth/login" routerLinkActive="active">login</a>
+        <a mat-button routerLink="/auth/signup" routerLinkActive="active">sign-up</a>
+      </div>
+  
+      <div *ngIf="isAuthenticated" class="search-toolbar-container" [ngClass]="{ 'focus': focused, 'has-input': input }" (appClickOutside)="closeDropdown()">
+        <button class="search-button" mat-button (click)="toggleDropdownSearch()" matTooltip="Search">
+          <mat-icon>search</mat-icon>
+      </button>
+        <mat-form-field class="search" [class.search-open]="isSearchDropdownOpen">
+          <input matInput (keyup)="searchTerm$.next($event.target.value)" type="search" [(ngModel)]="input" (focus)="openDropdown()" autocomplete="off" spellcheck="false" placeholder="Search...">
+        </mat-form-field>
+      </div>
+  
+      <div *ngIf="isAuthenticated" class="notifications-button-container" (appClickOutside)="onClickOutsideUserNotifications()">
+          <button mat-button class="notifications-badge" matTooltip="Notifications" (click)="toggleDropdownUserNotifications()">
+              <mat-icon matBadge="{{ notificationsList.length }}" matBadgeSize="medium" matBadgeColor="accent" [matBadgeHidden]="!notificationsList.length">notifications_active</mat-icon>
+          </button>
+      </div>
+  
+      <div *ngIf="isAuthenticated" class="user-button-container" (appClickOutside)="onClickOutsideUserMenu()">
+        <button mat-button class="user-button" [class.open]="isUserMenuOpen" matTooltip="Profile" (click)="toggleDropdownUserMenu()" >
+          <img class="avatar" src="{{ userProfile.userImage }}">
+          <span class="name">{{ userProfile.userFirstName }} {{ userProfile.userLastName }}</span>
+          <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+      
+      <button *ngIf="!isAuthenticated" class="user-button-logged-out" mat-button>
+        <mat-icon>face</mat-icon>
+      </button>
+  
+          <!-- <button mat-button class="quickpanel-button" (click)="openQuickpanel()">
+          <mat-icon>format_align_right</mat-icon>
+      </button> -->
+    </div>
+  </mat-toolbar>
+</div>
+
+<div class="dropdowns-container">
+      <div class="dropdown-user-menu mat-elevation-z1" [class.open]="isUserMenuOpen">
+        <div class="content">
+          <div class="list">
+            <div class="item" matRipple routerLink="/settings">
+              <mat-icon class="icon">settings</mat-icon>
+              <span class="title">Settings</span>
+            </div>
+      
+            <mat-divider></mat-divider>
+      
+            <div class="item" matRipple (click)="onLogout()">
+              <mat-icon class="icon">exit_to_app</mat-icon>
+              <span class="title">Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown-notifications-menu mat-elevation-z1" [class.open]="isNotificationsMenuOpen">
+        <div class="content">
+          <div class="card">
+              <div class="header">
+
+                <div class="title">
+                  <div class="title-name">Notifications</div>
+                  <div class="title-extra">You have {{ notificationsList.length }} new notifications.</div>
+                </div>
+
+                <button type="button" mat-icon-button matTooltip="Notifications Settings" routerLink="/settings">
+                  <mat-icon class="icon">settings</mat-icon>
+                </button>
+
+              </div>
+            
+              <div>
+                <app-notification *ngFor="let notification of notificationsList | slice:0:4" [notificationData]="notification" (deleteNotification)="onDeleteNotification($event)"></app-notification>
+              </div>
+
+              <div class="no-data" *ngIf="notificationsList.length <= 0">
+                <div class="no-notifications-container">
+                    <img src="./assets/img/no-data/widget.png" />
+                    <p>There are no notifications yet!</p>
+                </div>
+              </div>
+          
+              <div class="footer" *ngIf="notificationsList.length > 0">
+                <div class="action">
+                  <!-- <button mat-button (click)="onDeleteAllNotifications()">Mark all as read</button> -->
+                  <button mat-button routerLink="/notifications">SHOW MORE >></button>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="dropdown-search mat-elevation-z1" [class.open]="focused">
+      <div class="content" >
+
+          <div class="heading">
+            <mat-icon class="icon">search</mat-icon>
+            Search results for: <span class="search-term">{{ input }}</span>
+          </div>
+
+          <ul *ngIf="searchResults" class="items">
+              <li matRipple *ngFor="let result of searchResults">
+                <div >
+                  <a href="{{ result.latest }}" target="_blank">
+                    {{ result.name }}
+                  </a>
+                </div>
+              </li>
+          </ul>
+
+        </div>
+    </div>
+</div>

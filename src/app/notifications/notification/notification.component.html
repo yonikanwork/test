@@ -1,0 +1,13 @@
+<div class="notification" matRipple [ngClass]="notificationData.colorClass" [class.read]="notificationData.read">
+  <mat-icon  class="icon">{{ notificationData.icon }}</mat-icon>
+  <div class="title">
+    <div class="name" routerLink="/home">{{ notificationData.id }} - {{ notificationData.title }}</div>
+    <div class="time">{{ notificationData.date | date }}</div>
+  </div>
+  <span></span>
+  <button type="button" mat-icon-button (click)="onDeleteNotification(notificationData.id)">
+    <mat-icon class="close">close</mat-icon>
+  </button>
+</div>
+
+<div class="divider"></div>

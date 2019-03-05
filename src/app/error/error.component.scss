@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+:host {
+
+  .dialog-header {
+    background-color: $color-primary;
+    color: white;
+    padding: 1px 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dialog-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dialog-footer {
+      // border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+
+      button {
+          margin-right: 20px;
+      }
+  }
+}
+

@@ -1,0 +1,71 @@
+<div class="settings">
+  <mat-accordion>
+
+      <mat-expansion-panel [expanded]="isProfilePanel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>PROFILE INFORMATION</mat-panel-title>
+          <mat-panel-description class="panel-description">
+            user information and avatar
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="panel-user">
+          <form [formGroup]="form" (submit)="onChangeProfileDetails()" *ngIf="!isLoading" class="">
+                <mat-form-field class="example-full-width">
+                    <input matInput formControlName="emailText" placeholder="Email" disabled value="{{ userProfile.userEmail }}">
+                </mat-form-field>
+
+                <div class="panel-user-image">
+                    <!-- <img class="placeholder-image" src="./assets/img/no-data/widget.png" /> -->
+                    <div>
+                        <button mat-stroked-button type="button" (click)="filePicker.click()">Change Profile Image</button>
+                        <input type="file" #filePicker (change)="onImagePicked($event)">
+                    </div>
+                    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+                        <img [src]="imagePreview">
+                    </div>
+                </div>
+
+                <button type="submit" mat-raised-button color="accent">Update Profile</button>
+          </form>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- <mat-expansion-panel [expanded]="isNotificationsPanel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>NOTIFICAIONS CONFIGURATION</mat-panel-title>
+          <mat-panel-description class="panel-description">
+            notifications configuration
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="panel-notifications">
+            <mat-slide-toggle checked="true" disabled="true">Enabled Notifications</mat-slide-toggle>
+            <span>Max number of preview notifications: </span><mat-slider max="10" min="4" thumbLabel="true" disabled="true" class="notifications-slider"></mat-slider>
+        </div>
+      </mat-expansion-panel> -->
+
+      <mat-expansion-panel [expanded]="isApplicationPanel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>APPLICATION CONFIGURATION</mat-panel-title>
+          <mat-panel-description class="panel-description">
+            general config for the user
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="panel-general">
+          <app-theme-picker [themeData]="themeData"></app-theme-picker>
+            
+          <mat-slide-toggle disabled="false" [checked]="isDarkMode" (change)="darkModeToggle($event.checked)">Dark Mode</mat-slide-toggle>
+          <!-- <mat-form-field>
+            <mat-select disabled="true" [(value)]="selected" placeholder="Choose a language">
+              <mat-option *ngFor="let language of languages" [value]="language.value">
+                {{ language.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+        </div>
+      </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

@@ -1,0 +1,39 @@
+<!-- <mat-card class="notifications-card">
+  <mat-card-header>
+    <mat-card-title>test</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+  </mat-card-content>
+
+</mat-card> -->
+
+<div class="card">
+    <div class="header">
+      <div class="title">
+        <div class="name">Notifications</div>
+        <div class="extra">You have {{ notificationsList.length }} new notifications.</div>
+      </div>
+      <button type="button" mat-icon-button routerLink="/settings">
+        <mat-icon class="icon">settings</mat-icon>
+      </button>
+    </div>
+  
+    <div class="content">
+      <app-notification *ngFor="let notification of notificationsList" [notificationData]="notification" (deleteNotification)="onDeleteNotification($event)"></app-notification>
+    </div>
+      
+    <div class="no-data" *ngIf="notificationsList.length <= 0">
+        <div class="no-notifications-container">
+            <img src="./assets/img/no-data/widget.png" />
+            <p>There are no notifications yet!</p>
+        </div>
+    </div>
+
+    <div class="footer" *ngIf="notificationsList.length > 0">
+      <div class="action">
+        <button mat-button (click)="onDeleteAllNotifications()">Mark all as read</button>
+      </div>
+    </div>
+  </div>

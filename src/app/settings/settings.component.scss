@@ -1,0 +1,80 @@
+@import '../../styles/variables';
+
+:host {
+  .settings {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 75px;
+
+    @media (max-width: $media-query-xs) {
+      width: 100%;
+    }
+
+    mat-expansion-panel {
+      @media (max-width: $media-query-xs) {
+        width: 352px;
+        margin: 0 auto;
+        margin-top: 14px;
+      }
+
+
+    }
+
+    // .mat-expansion-panel-body {
+    //   display: flex;
+    // }
+
+    input[type="file"] {
+      visibility: hidden;
+    }
+
+
+    .panel-description {
+      @media (max-width: $media-query-xs) {
+        display: none;
+      }
+    }
+
+    .panel-user {
+      display: flex;
+      flex-direction: column;
+      width: 320px;
+
+      @media (max-width: $media-query-xs) {
+        width: 100%;
+      }
+    }
+
+    .panel-user-image {
+      // display: flex;
+
+      .placeholder-image {
+        width: 540px;
+      }
+
+      img {
+        width: 540px;
+      }
+
+      .image-preview {
+        // width: 540px;
+        // height: 300px;
+        // background-color: #444;
+      }
+    }
+
+    .panel-notifications {
+      display: flex;
+      flex-direction: column;
+
+      .notifications-slider {
+        width: 200px;
+      }
+    }
+
+    .panel-general {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

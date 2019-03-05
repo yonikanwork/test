@@ -1,0 +1,23 @@
+<mat-sidenav-container >
+
+  <mat-sidenav #sidenav role="navigation" class="sidenav">
+    <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
+  </mat-sidenav>
+
+  <mat-sidenav #quickpanel position="end" mode="over" class="quickpanel">
+      <app-quickpanel></app-quickpanel>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="app-container">
+  
+      <app-header [quickpanel]="quickpanel" (sidenavToggle)="sidenav.toggle()"></app-header>
+    
+      <main class="page-container">
+        <router-outlet> </router-outlet>
+      </main>
+      
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

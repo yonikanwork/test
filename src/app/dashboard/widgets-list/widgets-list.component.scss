@@ -1,0 +1,19 @@
+@import '../../../styles/variables';
+
+mat-spinner {
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+.widgets-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 65px;
+
+  @media (max-width: $media-query-xs) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="">
+  <form [formGroup]="form" (submit)="onCreatePost()" class="form">
+    <div class="dialog-header">
+      <p>Adding A Post</p>
+      <button mat-button mat-dialog-close><mat-icon class="icon">close</mat-icon></button>
+    </div>
+
+    <div class="dialog-content">
+      <mat-form-field>
+        <input matInput type="text" formControlName="titleText" placeholder="Enter title text">
+        <mat-error *ngIf="form.get('titleText').invalid">Please enter minimum 5 characters.</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput type="textarea" formControlName="bodyText" placeholder="Enter body text">
+        <mat-error *ngIf="form.get('bodyText').invalid">Please enter minimum 5 characters.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="dialog-footer">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button *ngIf="!isEditmode" mat-raised-button color="accent" type="submit" cdkFocusInitial>Add Post</button>
+        <button *ngIf="isEditmode" mat-raised-button color="accent" type="submit" cdkFocusInitial>Edit Post</button>
+    </div>
+  </form>
+</div>

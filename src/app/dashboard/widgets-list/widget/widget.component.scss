@@ -1,0 +1,87 @@
+@import '../../../../styles/variables';
+
+.widget-card {
+  // width: 340px;
+  width: 540px;
+
+  margin: 13px;
+  min-height: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: $media-query-xs) {
+    width: 320px;
+    margin: 9px;
+  }
+
+  .loading-overlay {
+    background-color: rgba(255,255,255, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      margin-left: auto;
+    }
+  }
+
+  mat-card-header {
+    // height: 100%;
+    // width: 100%;
+  }
+
+  .list-view-mode-wrapper {
+
+
+    table {
+      width: 540px;
+      height: 240px;
+
+      tr {
+  
+        &:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        th {
+          //   width: 25%;
+            padding-left: 7px;
+            
+            &:first-child {
+                width: 40px;                  
+            }
+        }
+
+        td {
+            padding: 7px 0;
+            padding-left: 7px;
+
+            &:first-child {
+                width: 40px;
+                margin-right: 10px;                    
+            }
+            &:nth-child(3) {
+              width: 210px;                   
+          }
+        }
+      }
+    }
+  }
+}

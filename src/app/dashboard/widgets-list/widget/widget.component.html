@@ -1,0 +1,70 @@
+<mat-card class="widget-card">
+  <div [class.show]="isLoading" class="loading-overlay">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <div>
+    <mat-card-header>
+      <mat-card-title>{{ widgetData.title}}</mat-card-title>
+
+      <div class="actions-wrapper">
+          <button mat-icon-button (click)="toggleListView()">
+              <mat-icon *ngIf="!isListViewMode" matTooltip="Switch To List View">view_list</mat-icon>    
+              <mat-icon *ngIf="isListViewMode" matTooltip="Switch To Dounats Chart">pie_chart</mat-icon>                                                
+          </button> 
+    
+          <button mat-icon-button (click)="onRefresh()" matTooltip="Refresh Widget">
+            <mat-icon>refresh</mat-icon>
+          </button>
+      </div>
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- <ng-container *ngIf="isListViewMode">
+          <div class="list-view-mode-wrapper">
+              <table>
+                <tr *ngFor="let row of tableData">
+                    <td><mat-checkbox color="primary"></mat-checkbox></td>
+                    <td>{{ row.name }}</td>
+                    <td>
+                        <mat-progress-bar
+                            [color]="color"
+                            [mode]="mode"
+                            [value]="value"
+                            [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </td>
+                    <td>{{ row.weight }}</td>
+                </tr>
+              </table>
+            </div>
+      </ng-container> -->
+      <div *ngIf="isListViewMode" >
+          <div class="list-view-mode-wrapper">
+            <table>
+              <tr *ngFor="let row of tableData">
+                  <td><mat-checkbox color="primary"></mat-checkbox></td>
+                  <td>{{ row.name }}</td>
+                  <td>
+                      <mat-progress-bar
+                          [color]="color"
+                          [mode]="mode"
+                          [value]="value"
+                          [bufferValue]="bufferValue">
+                      </mat-progress-bar>
+                  </td>
+                  <td>{{ row.weight }}</td>
+              </tr>
+            </table>
+          </div>
+      </div>
+
+      <div *ngIf="!isListViewMode" >
+          <app-widget-bar-chart *ngIf="widgetData.type === 'barchart'" [widgetData]="widgetData"></app-widget-bar-chart>
+          <app-widget-line-chart *ngIf="widgetData.type === 'linechart'" [widgetData]="widgetData"></app-widget-line-chart>
+          <app-widget-doughnut-chart *ngIf="widgetData.type === 'doughnutchart'" [widgetData]="widgetData"></app-widget-doughnut-chart>
+      </div>
+    </mat-card-content>
+  </div>
+</mat-card>

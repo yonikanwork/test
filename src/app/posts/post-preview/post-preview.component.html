@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<mat-card *ngIf="!isLoading"class="post-preview-card">
+  <mat-card-header>
+    <div mat-card-avatar class="post-preview-header-image"></div>
+    <mat-card-title>{{ postData.title }}</mat-card-title>
+    <mat-card-subtitle>{{ postData.createdAt | date }}</mat-card-subtitle>
+    <div class="header-actions">
+        <button mat-raised-button color="primary"(click)="onUpdatePost()">EDIT</button>
+        <button mat-raised-button color="warn" (click)="onDeletePost()">DELETE</button>
+    </div>
+  </mat-card-header>
+
+  <img mat-card-image src="{{ postData.imagePath }}" alt="Photo of...">
+
+  <mat-card-content>
+    <p>{{ postData.content }}</p>
+  </mat-card-content>
+</mat-card>

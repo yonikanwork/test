@@ -1,0 +1,16 @@
+
+
+<div class="widget-wrapper">
+  <!-- only the line chart need the width & the height to be added into the canvas element -->
+  <canvas
+    baseChart
+    width="540" height="240"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType">
+  </canvas>
+</div>
+

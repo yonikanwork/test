@@ -1,0 +1,79 @@
+
+<div class="">
+    <mat-card>
+      <div class="elevation">
+          <div class="actions">
+              <button class="fury-column-filter" type="button" mat-icon-button [matMenuTriggerFor]="columnFilter">
+                  <mat-icon>filter_list</mat-icon>
+              </button>
+              <mat-menu #columnFilter="matMenu" >
+                    <button class="checkbox-item mat-menu-item" *ngFor="let column of columns">
+                          <!-- <mat-checkbox class="checkbox" #checkbox (click)="$event.stopPropagation()"> -->
+                          <mat-checkbox checked="column.visible" (click)="toggleColumnVisibility(column, $event)">{{ column.name }}-{{ column.visible }}</mat-checkbox>
+                    </button>
+              </mat-menu>
+          </div>
+    
+          <mat-table #table [dataSource]="dataSource" matSort>
+    
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="checkbox">
+              <mat-header-cell class="actions-cell" *matHeaderCellDef>
+                <mat-checkbox color="primary" (click)="$event.stopPropagation()"></mat-checkbox>
+              </mat-header-cell>
+              <mat-cell class="actions-cell" *matCellDef="let row">
+                <span class="fury-mobile-label"></span>
+                <mat-checkbox color="primary" (click)="$event.stopPropagation()"></mat-checkbox>
+              </mat-cell>
+            </ng-container>
+    
+            <!-- ID Column -->
+            <ng-container matColumnDef="image">
+              <mat-header-cell class="image-cell" *matHeaderCellDef></mat-header-cell>
+              <mat-cell class="image-cell" *matCellDef="let row">
+                <span class="fury-mobile-label"></span>
+                <img src="http://i.pravatar.cc/30?u={{ row.name }}">
+              </mat-cell>
+            </ng-container>
+    
+            <!-- fullName Column -->
+            <ng-container *ngFor="let column of columns">
+              <ng-container *ngIf="column.isModelProperty" [matColumnDef]="column.property">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.name }}</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <span class="fury-mobile-label">{{ column.name }}</span>
+                  {{ row[column.property] }}
+                </mat-cell>
+              </ng-container>
+            </ng-container>
+    
+            <!-- actions Column -->
+            <ng-container matColumnDef="actions">
+              <mat-header-cell class="actions-cell" *matHeaderCellDef mat-sort-header></mat-header-cell>
+              <mat-cell class="actions-cell" *matCellDef="let row">
+                <span class="fury-mobile-label"></span>
+                <button class="btn-actions" type="button" mat-icon-button [matMenuTriggerFor]="actionsMenu" (click)="$event.stopPropagation()">
+                  <mat-icon>more_horiz</mat-icon>
+                </button>
+    
+                <mat-menu #actionsMenu="matMenu" yPosition="below" xPosition="before">
+                  <button (click)="null" mat-menu-item>
+                    <span>Modify</span>
+                  </button>
+                  <button (click)="null" mat-menu-item>
+                    <span>Delete</span>
+                  </button>
+                </mat-menu>
+              </mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: visibleColumns;" (click)="null" class="clickable"></mat-row>
+          </mat-table>
+    
+          <mat-paginator class="paginator" [pageSize]="pageSize"></mat-paginator>
+      </div>
+    </mat-card>
+</div>
+
+

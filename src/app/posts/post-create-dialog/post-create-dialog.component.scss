@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+:host {
+  @include dialog;
+
+  // .dialog-header {
+  // }
+
+  .dialog-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .form-container {
+      // width: 600px;
+      // margin: 0 auto;
+      text-align: center;
+
+      @media (max-width: $media-query-xs) {
+        width: 100%;
+      }
+
+    //   .form {
+    //     display: flex;
+    //     flex-direction: column;
+
+    //     .action-buttons {
+    //       display: flex;
+    //     }
+    //   }
+    }
+  }
+
+  // .dialog-footer {
+  // }
+}

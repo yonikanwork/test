@@ -1,0 +1,38 @@
+@import '../styles/variables';
+
+mat-sidenav-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(230, 230, 230); // app's background
+
+  .sidenav {
+    width: 250px;
+    background: rgb(43, 48, 59);
+  }
+
+  .quickpanel {
+    width: 350px;
+  }
+
+  mat-sidenav-content {
+    .app-container {
+      width: 100%;
+      margin: 0 auto;
+
+      @media (max-width: $media-query-xs) {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .page-container {
+        margin-top: $header-height;
+        // width: 1000px;
+        // margin: 0 auto;
+    
+        @media (max-width: $media-query-xs) {
+          // margin-top: 58px;
+        }
+      }
+    }
+  }
+}

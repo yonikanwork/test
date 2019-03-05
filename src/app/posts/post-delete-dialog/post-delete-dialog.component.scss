@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+:host {
+  @include dialog;
+
+  // .dialog-header {
+  // }
+
+  .dialog-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .dialog-footer {
+  // }
+}

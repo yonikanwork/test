@@ -1,0 +1,30 @@
+
+
+<div class="posts-list-container">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <div *ngIf="!isLoading" class="actions-container">
+        <button mat-raised-button color="accent" (click)="openDialog()">Add Post</button>
+    </div>
+    
+
+    <div *ngIf="!isLoading" class="posts-container">
+      <app-post *ngFor="let post of posts" [postData]="post"></app-post>
+
+      <!-- <cdk-virtual-scroll-viewport autosize itemSize="90" class="virtual-scroll-container">
+          <div *cdkVirtualFor="let post of posts; let i = index">
+             <div><p>test</p></div>
+            </div>
+      </cdk-virtual-scroll-viewport> -->
+
+
+      <mat-card *ngIf="posts.length <= 0 && !isLoading" class="no-posts-container">
+        <mat-card-content>
+            <div class="">
+                <img src="./assets/img/no-data/widget.png" />
+                <p>No posts added yet!</p>
+            </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>

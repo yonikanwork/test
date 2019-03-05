@@ -1,0 +1,37 @@
+
+<mat-form-field appearance="outline">
+  <input matInput (keyup)="searchTerm$.next($event.target.value)">
+</mat-form-field>
+
+<ul *ngIf="results">
+  <li *ngFor="let result of results.results | slice:0:10">
+    <a href="{{ result.latest }}" target="_blank">
+      {{ result.name }}
+    </a>
+  </li>
+</ul>
+
+
+
+<!-- <div class="search">
+  <mat-card>
+      <mat-card-title>search</mat-card-title>
+
+      <mat-card-subtitle>
+        Async real-time queries
+      </mat-card-subtitle>
+
+      <mat-card-content>
+          <mat-form-field appearance="outline">
+              <input matInput (keyup)="searchTerm$.next($event.target.value)">
+          </mat-form-field>
+          <ul *ngIf="results">
+            <li *ngFor="let result of results.results">
+              <a href="{{ result.latest }}" target="_blank">
+                {{ result.name }}
+              </a>
+            </li>
+          </ul>
+      </mat-card-content>
+  </mat-card>
+</div> -->

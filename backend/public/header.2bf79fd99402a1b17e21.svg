@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="845px" viewBox="0 0 1440 845" preserveAspectRatio="none"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Header</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="7.30197483%" y1="-117.3143%" x2="86.335178%" y2="119.937555%" id="linearGradient-1">
+            <stop stop-color="#8B4298" offset="0%"></stop>
+            <stop stop-color="#00B5D0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Header">
+            <rect id="Rectangle-9-Copy" fill="#F6F7F9" x="0" y="224" width="1440" height="621"></rect>
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" points="0 0 1440 0 1440 596.287846 0 694"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,101 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/4.b7d84e2ee5a9c85e7cdb.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.4795a3166882e33f2ddc.js",
+        "/polyfills.dc34623f2e2c243a1ea2.js",
+        "/runtime.5f8532ce3af742f697d1.js",
+        "/styles.8fc4b17911fee165b289.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/landingpage/drive.svg",
+        "/assets/img/landingpage/header.svg",
+        "/assets/img/landingpage/home.svg",
+        "/assets/img/landingpage/unlock.svg",
+        "/assets/img/logo.png",
+        "/assets/img/no-data/widget.png",
+        "/assets/img/profile-sm.jpg",
+        "/assets/splashscreens/ipad_splash.png",
+        "/assets/splashscreens/ipadpro1_splash.png",
+        "/assets/splashscreens/ipadpro2_splash.png",
+        "/assets/splashscreens/iphone5_splash.png",
+        "/assets/splashscreens/iphone6_splash.png",
+        "/assets/splashscreens/iphoneplus_splash.png",
+        "/assets/splashscreens/iphonex_splash.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/4.b7d84e2ee5a9c85e7cdb.js": "28429f7b3a0ce408b5a0f8bf8afb618478467664",
+    "/assets/icons/icon-128x128.png": "657721a29c512f0ce1a4610cd33c070b467e601d",
+    "/assets/icons/icon-144x144.png": "9d772fafe1f3aa93abfa66cd41cbc4dc8a94d5dd",
+    "/assets/icons/icon-152x152.png": "222a9218299cedfb78778d8dea092d662d410106",
+    "/assets/icons/icon-192x192.png": "289615500f388312ef7dc1a353bca6330a64fcfe",
+    "/assets/icons/icon-384x384.png": "925df2e4af603060815b7b5c1fba2b066addb0da",
+    "/assets/icons/icon-512x512.png": "925df2e4af603060815b7b5c1fba2b066addb0da",
+    "/assets/icons/icon-72x72.png": "0dcecbe44e04c5d55f31335ef02ba20652453f01",
+    "/assets/icons/icon-96x96.png": "a30bcb975e8e3583b8cbfa899982c476d812c4ee",
+    "/assets/img/landingpage/drive.svg": "3d57b97d1fddc286f365ff3c553e184520de78fa",
+    "/assets/img/landingpage/header.svg": "028a2f0a86dd785a67006a44d42b25743caef605",
+    "/assets/img/landingpage/home.svg": "d2024c0509fcb8432084c78dee98b7aea884d646",
+    "/assets/img/landingpage/unlock.svg": "75a1945a7177fc50f1bb016586b4074b78c75f39",
+    "/assets/img/logo.png": "879d52eec2bd3cae7734999267fe7efc1bc3c1c3",
+    "/assets/img/no-data/widget.png": "c6dbf154b2669bf57de3ea130f1a813143e5a150",
+    "/assets/img/profile-sm.jpg": "511171b44c7a90426895a18c65d203bb8cfaf331",
+    "/assets/splashscreens/ipad_splash.png": "16ef4aeb57d5d5d76baac22173a43b2eaeefe240",
+    "/assets/splashscreens/ipadpro1_splash.png": "92a580b6b186a7fab596bb401b565b2a67575e1c",
+    "/assets/splashscreens/ipadpro2_splash.png": "3933ceebdd2443718736231e2bd797f790e634f9",
+    "/assets/splashscreens/iphone5_splash.png": "24af73a8cccd64e2569cbe7fb1f72032141ea9c4",
+    "/assets/splashscreens/iphone6_splash.png": "607a97b9f1eb0ff950ba1fb3d4daef6cdb162f81",
+    "/assets/splashscreens/iphoneplus_splash.png": "1b04bb6967e230b23d5a57d91c318f9035090d75",
+    "/assets/splashscreens/iphonex_splash.png": "867e6d53fcee75c38f0d9d613d6b4cde8a11c5e1",
+    "/favicon.ico": "13b2a33169a01028788615479b8dabd93ea067b8",
+    "/index.html": "1384045d6d2207884131e67db73dc94952d0fd08",
+    "/main.4795a3166882e33f2ddc.js": "938e35d3b5d9a96f5c0c6245c3f8b45014fe07c0",
+    "/polyfills.dc34623f2e2c243a1ea2.js": "bd5a39aa2918f02decb1ad0ab783be3478196d53",
+    "/runtime.5f8532ce3af742f697d1.js": "290703736acaca21198635d15be45ed3c703b8d2",
+    "/styles.8fc4b17911fee165b289.css": "416a5aeee58430593176715ff5061216f2f99f3d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

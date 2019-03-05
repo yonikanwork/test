@@ -1,0 +1,4 @@
+// Theme Color Picker
+@function var($variable) {
+    @return map-get($variables, $variable);
+}

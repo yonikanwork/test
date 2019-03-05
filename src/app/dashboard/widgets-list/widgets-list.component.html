@@ -1,0 +1,5 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div *ngIf="!isLoading" class="widgets-container">
+  <app-widget *ngFor="let widget of widgets" [widgetData]="widget"></app-widget>
+</div>

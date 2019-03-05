@@ -1,0 +1,78 @@
+
+
+mat-card {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 75px;
+  padding: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 5px 15px;
+}
+
+.clickable {
+    cursor: pointer;
+  }
+  
+  .image-cell {
+  
+    img {
+    //   background: $theme-app-bar;
+    }
+  }
+
+
+
+
+
+  .mat-header-row {
+    background: #F5F5F5;
+
+    .mat-header-cell .mat-sort-header-button {
+      text-transform: uppercase;
+    }
+  }
+
+  .mat-row {
+
+    &:hover {
+      background: rgba(black, 0.04);
+    }
+  }
+
+  .mat-cell.image-cell, .mat-header-cell.image-cell {
+    flex: 0;
+    min-width: 35px + 39px;
+
+    img {
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      margin-right: 30px;
+      vertical-align: middle;
+    }
+  }
+
+  .mat-cell.actions-cell, .mat-header-cell.actions-cell {
+    flex: 0;
+    min-width: 40px;
+    overflow: visible;
+
+    button {
+      color: #000;
+    }
+  }
+
+  .paginator {
+    display: block;
+    background: #F5F5F5;
+  }
+  
+
+
+  .btn-actions {
+
+  }
